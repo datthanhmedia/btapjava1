@@ -93,7 +93,6 @@ System.out.println("End Program");
 		for(int i = 0; i < employee.length; i++) {
 			if(tennv.equals(employee[i].name)) {
 				employee[i].Salary = luongnv;
-				break;
 			}
 		}
 	}
