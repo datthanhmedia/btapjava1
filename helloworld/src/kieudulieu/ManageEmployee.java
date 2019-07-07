@@ -3,7 +3,7 @@ package kieudulieu;
 import java.util.Scanner;
 
 
-public class ManageEmployee {
+public class ManageEmployee implements EmployeeDAO {
 	public static Scanner scanner = new Scanner(System.in);
 	public static int inputNumber = 0;
 	public static int employeeNumber = 0;
@@ -14,6 +14,7 @@ showMenu();
 System.out.println("End Program");
 	}
 	public static void showMenu() {
+		EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
 		do {
 			System.out.println("1. Creat Employee");
 			System.out.println("2. Show all employee");
@@ -24,15 +25,28 @@ System.out.println("End Program");
 			inputNumber = scanner.nextInt();
 			switch (inputNumber) {
 			case 1:
-				addEmployee();
+				employeeDAO.addEmployee();
 				break;
 			case 2:
-				showEmployee();
+				employeeDAO.showEmployee();
 				break;
 			case 3:
 				break;
 			case 4:
-				searchEmployee();
+				System.out.print("Nhap vao ten nhan vien: ");
+				String tennv = scanner.next();
+				Employee epl = employeeDAO.searchEmployee(tennv);
+				System.out.println(epl.getId() + "\t" + epl.getName() + "\t" + epl.getAge() + "\t" + epl.getSalary() + "\t"  + epl.getJob());
+				System.out.print("Ban co muon thay doi luong nhan vien? 1 = Yes / 2 = No / Khac = exit");
+				int temp = scanner.nextInt();
+				switch(temp){
+					case 1:
+						employeeDAO.updateEmployee(tennv);
+					case 2:
+						showMenu();
+					default:
+						break;
+				}
 				break;
 			case 0:
 				showMenu();
@@ -42,7 +56,8 @@ System.out.println("End Program");
 		}while(inputNumber !=3);
 		
 	}
-	public static void addEmployee() {
+	@Override
+	public void addEmployee(){
 		System.out.print("Ban muon nhap vao bao nhieu nhan vien?");
 		employeeNumber = scanner.nextInt();
 		employee = new Employee[employeeNumber];
@@ -62,37 +77,33 @@ System.out.println("End Program");
 			employee[i] = employees;
 		}
 	}
-	public static void showEmployee() {
+	@Override
+	public void showEmployee() {
 		for (int i = 0; i < employee.length; i++) {
-			System.out.println((i+1) + "\t" + employee[i].name + "\t" + employee[i].age + "\t" + employee[i].Salary + "\t" + employee[i].Maried + "\t" + employee[i].job.name);
+			System.out.println((i+1) + "\t" + employee[i].getName() + "\t" + employee[i].getAge() + "\t" + employee[i].getSalary()  + "\t" + employee[i].getJob());
 		}
 	}
-	public static void searchEmployee() {
-		System.out.print("Nhap vao ten nhan vien: ");
-		String tennv = scanner.next();
+	@Override
+	public Employee searchEmployee(String tennv) {
+		Employee employees = null;
 		for(int i = 0; i < employee.length; i++) {
-			System.out.println("Tat ca nhan vien co ten: " + tennv + "la: ");
-			if (tennv.equals(employee[i].name)) {
-				System.out.println((i+1) + "\t" + employee[i].name + "\t" + employee[i].age + "\t" + employee[i].Salary + "\t" + employee[i].Maried + "\t" + employee[i].job.name);
-			}
-		}
-		System.out.print("Ban co muon thay doi luong nhan vien? 1 = Yes / 2 = No / Khac = exit");
-		int temp = scanner.nextInt();
-		switch(temp){
-			case 1:
-				updateEmployee(tennv);
-			case 2:
-				showMenu();
-			default:
+			if (tennv.equals(employee[i].getName())) {
+				employees = employee[i];
 				break;
+			}
+			
+			
 		}
+		return employees;
+
 	}
-	public static void updateEmployee(String tennv) {
+	@Override
+	public void updateEmployee(String tennv) {
 		System.out.print("Nhap so luong muon thay doi: ");
 		double luongnv = scanner.nextDouble();
 		for(int i = 0; i < employee.length; i++) {
-			if(tennv.equals(employee[i].name)) {
-				employee[i].Salary = luongnv;
+			if(tennv.equals(employee[i].getName())) {
+				employee[i].setSalary(luongnv);
 			}
 		}
 	}
