@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+ul.menu-chinh {
+    display: inline-flex;
+    padding-left: 280px;
+    background-image: linear-gradient(to bottom, #13b427 , #196517);
+}
+ul.menu-chinh>li {
+    list-style: none;
+    padding: 10px;
+}
+.menu-tren {
+    display: inline-flex;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #13b427 , #196517);
+}
+.logo {
+    width: 30%;
+    padding-left: 90px;
+}
+.menu {
+    width: 70%;
+}

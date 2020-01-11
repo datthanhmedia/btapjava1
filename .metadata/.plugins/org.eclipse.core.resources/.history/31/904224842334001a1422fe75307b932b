@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+h1.thong-tin {
+    text-align: center;
+    padding-top: 15px;
+}
+tr.menu-thong-tin-khach-hang>th {
+    border: 1px solid #000;
+}
+table.thong-tin-khach-hang {
+    padding-top: 15px;
+}
+tr.menu-thong-tin-khach-hang>th {
+    border: 1px solid #000;
+}

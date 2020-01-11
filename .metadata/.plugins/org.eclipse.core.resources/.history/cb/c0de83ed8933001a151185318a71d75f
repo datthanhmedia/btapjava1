@@ -1,0 +1,8 @@
+@charset "ISO-8859-1";
+ul.menu-chinh {
+    display: inline-flex;
+}
+ul.menu-chinh>li {
+    list-style: none;
+    padding: 10px;
+}

@@ -1,0 +1,44 @@
+@charset "ISO-8859-1";
+h1.thong-tin {
+    text-align: center;
+    padding-top: 15px;
+}
+table.thong-tin-khach-hang {
+    padding-top: 15px;
+}
+tr.menu-thong-tin-khach-hang>th {
+    padding: 10px 10px 10px 10px;
+    background: #eaeaea;
+    border: 1px solid;
+    text-align: center;
+}
+.khach-hang {
+    padding-top: 20px;
+}
+tr.listKhachHang>td {
+    padding-left: 5px;
+}
+td.listKhachHang-id {
+    width: 4%;
+}
+td.listKhachHang-tenKH {
+    width: 15%;
+}
+td.listKhachHang-thongTin {
+    width: 20%;
+}
+td.listKhachHang-trangThai {
+    width: 8%;
+}
+td.listKhachHang-info {
+    width: 15%;
+}
+td.listKhachHang-tenMien {
+    width: 15%;
+}
+td.listKhachHang-ngay {
+    width: 7%;
+}
+td.listKhachHang-sale {
+    width: 10%;
+}

@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+ul.menu-chinh {
+    display: inline-flex;
+    padding-left: 280px;
+}
+ul.menu-chinh>li {
+    list-style: none;
+    padding: 10px;
+}
+.menu-tren {
+    display: inline-flex;
+    width: 100%;
+}
+.logo {
+    width: 30%;
+    padding-left: 90px;
+}
+.menu {
+    width: 70%;
+}
+.logo>h2 {
+    margin: 10px 0px 5px 78px;
+}
+ul.menu-con {
+	display: none;
+}
+ul.menu-con>li {
+	color: red;
+    display: inline-table;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+ul.menu-com>li>a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}

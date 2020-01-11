@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<link href='<c:url value="/resource/css/header.css" />' rel='stylesheet'>
+</head>
+<body>
+		<h3 class="logo">Hello, ${sessionScope.user}</h3>
+		<ul class="menu-chinh">
+				<li><a href="${pageContext.request.contextPath}/ThongTinKhachHang">Khách hàng</a></li>
+				<li><a href="${pageContext.request.contextPath}/ThemKhachHang">Thêm khách hàng</a></li>
+				<li><a href="${pageContext.request.contextPath}/ThongTinTenMien">Tên miền</a></li>
+				<li><a href="${pageContext.request.contextPath}/ThemTenMien">Thêm tên miền</a></li>
+				<li><a href="${pageContext.request.contextPath}/DangXuat">Đăng xuất</a></li>
+		</ul>
+	</div>
+</body>
+</html>

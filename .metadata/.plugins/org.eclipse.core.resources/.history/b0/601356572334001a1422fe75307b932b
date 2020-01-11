@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+ul.menu-chinh {
+    display: inline-flex;
+    padding-left: 280px;
+}
+ul.menu-chinh>li {
+    list-style: none;
+    padding: 10px;
+}
+.menu-tren {
+    display: inline-flex;
+    width: 100%;
+}
+.logo {
+    width: 30%;
+    padding-left: 90px;
+}
+.menu {
+    width: 70%;
+}
+.logo>h2 {
+    margin: 10px 0px 5px 78px;
+}
+ul.menu-con {
+    list-style: none;
+    position: absolute;
+    min-width: 300px;
+    max-height: 0;
+    z-index: 9;
+    padding: 20px 0 20px;
+    opacity: 0;
+    margin: 0;
+    transition: opacity .25s;
+    box-shadow: 1px 1px 15px rgba(0,0,0,0.15);
+    border: 2px solid #ddd;
+    color: #777;
+    background-color: #fff;
+    text-align: left;
+    display: table;
+    left: -99999px;
+}
+h1.thong-tin {
+    text-align: center;
+    padding-top: 15px;
+}
+tr.menu-thong-tin-khach-hang>th {
+    border: 1px solid #000;
+}
+table.thong-tin-khach-hang {
+    padding-top: 15px;
+}
+tr.menu-thong-tin-khach-hang>th {
+    border: 1px solid #000;
+}
+}
