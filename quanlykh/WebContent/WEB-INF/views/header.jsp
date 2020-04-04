@@ -5,18 +5,38 @@
 <html>
 <head>
 <link href='<c:url value="/resource/css/header.css" />' rel='stylesheet'>
+<link href='<c:url value="/resource/css/thongtinkhachhang.css" />' rel='stylesheet'>
+<link href='<c:url value="/resource/css/thongtintenmien.css" />' rel='stylesheet'>
+<link href='<c:url value="/resource/css/themkhachhang.css" />' rel='stylesheet'>
+
 </head>
 <body>
-	<div style="background-color: #d0d0d0; heigh:100px;"> 
-		<h5>Hello, ${sessionScope.user}</h5>
-		<img width = "30px" alt="logo" src="<c:url value="/resource/image/logo.jpg" />">
-		<ul class="menu-chinh">
-				<li><a href="${pageContext.request.contextPath}/ThongTinKhachHang">Khách hàng</a></li>
-				<li><a href="${pageContext.request.contextPath}/ThemKhachHang">Thêm khách hàng</a></li>
-				<li><a href="${pageContext.request.contextPath}/ThongTinTenMien">Tên miền</a></li>
-				<li><a href="${pageContext.request.contextPath}/ThemTenMien">Thêm tên miền</a></li>
+	<div class="menu-tren">
+		<div class="logo">
+			<img alt="logo" src="<c:url value="/resource/image/logo.png" />">
+				<h5>Hello, ${sessionScope.user}</h5>
+		</div>
+		<div class="menu">
+			<ul class="menu-chinh">
+				<li>
+					<a href="${pageContext.request.contextPath}/ThongTinKhachHang">Khách hàng</a>
+					<ul class="menu-con">
+						<li><a href="${pageContext.request.contextPath}/ThongTinKhachHang">- Tất Cả Khách hàng</a></li>
+						<li><a href="${pageContext.request.contextPath}/ThemKhachHang">- Thêm khách hàng</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="${pageContext.request.contextPath}/ThongTinTenMien">Tên Miền</a>
+					<ul class="menu-con">
+						<li><a href="${pageContext.request.contextPath}/ThongTinTenMien">- Tất Cả Tên miền</a></li>
+						<li><a href="${pageContext.request.contextPath}/ThemTenMien">- Thêm tên miền</a></li>
+						<li><a href="${pageContext.request.contextPath}/TenMienSapHetHan">- Sắp hết hạn</a></li>
+						<li><a href="${pageContext.request.contextPath}/TenMienHetHan">- Hết Hạn</a></li>
+					</ul>
+				</li>
 				<li><a href="${pageContext.request.contextPath}/DangXuat">Đăng xuất</a></li>
-		</ul>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>

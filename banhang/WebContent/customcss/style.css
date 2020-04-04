@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.infokh {
+    display: block;
+}
+.thongbao {
+    text-align: center;
+    color: #c31b00;
+    font-size: 21px;
+    font-weight: 600;
+}

@@ -1,7 +1,12 @@
 package vn.quanlykh.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,9 +39,49 @@ public class ThongTinTenMienServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TenMienDAO tenMienDao = new TenMienDAO();
-		ArrayList<TenMien> listTenMien =  tenMienDao.tatCaTenMien();
 		
-		request.setAttribute("listTenMien", listTenMien);
+		ArrayList<TenMien> listTenMien =  tenMienDao.tatCaTenMien();
+		for(TenMien i: listTenMien) {
+			String ngayHetHan = i.getNgayHetHan();
+		
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date ngayHienTai = new Date();
+			
+			Date date1 = null; // Ngày hết hạn
+			Date date2 = null; // Ngày hiện tại
+			try {
+				String ngayHienTaiStr = new SimpleDateFormat("yyyy-MM-dd").format(ngayHienTai);
+				date1 = dateFormat.parse(ngayHetHan);
+				
+				date2 = dateFormat.parse(ngayHienTaiStr);
+				long getDiff = date1.getTime() - date2.getTime();
+				long getDaysDiff = TimeUnit.MILLISECONDS.toDays(getDiff);
+				
+				
+				if(getDaysDiff <=20 && getDaysDiff>0) {
+				
+					i.setTrangThai("Sắp Hết Hạn");
+					tenMienDao.capNhatTrangThai(i);
+					
+				
+				}else if(getDaysDiff<=0) {
+					
+					i.setTrangThai("Hết Hạn");
+					tenMienDao.capNhatTrangThai(i);
+				
+				}else {
+					i.setTrangThai("Đã Đăng Ký");
+					tenMienDao.capNhatTrangThai(i);
+				}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+		ArrayList<TenMien> listTenMienFinal = tenMienDao.tatCaTenMien();
+		request.setAttribute("listTenMien", listTenMienFinal);
 		RequestDispatcher dispatcher = this.getServletContext().
 		getRequestDispatcher("/WEB-INF/views/thongtintenmien.jsp");
 		dispatcher.forward(request, response);

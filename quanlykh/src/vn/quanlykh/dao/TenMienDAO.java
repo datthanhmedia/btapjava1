@@ -282,4 +282,120 @@ public class TenMienDAO {
             }
 		}
 	}
+	public void capNhatTrangThai(TenMien tenMien) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			
+			String updateSql = "UPDATE khachhang.tenmien SET trangthai = ? WHERE id = ?;";
+			connection = ConnectionFactory.getConnection();
+			preparedStatement = connection.prepareStatement(updateSql);
+			preparedStatement.setString(1, tenMien.getTrangThai());
+			preparedStatement.setInt(2, tenMien.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			//Handle errors for JDBC
+			e.printStackTrace();
+		} finally {
+			//finally block used to close resources
+			if (preparedStatement != null) {
+            	try {
+            		preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+            }
+
+
+            if (connection != null) {
+            	try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+            }
+		}
+	}
+	public ArrayList<TenMien> tenMienSapHetHan(){
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		ArrayList<TenMien> listTenMien = new ArrayList<TenMien>();
+		try {
+			connection = ConnectionFactory.getConnection();
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery("SELECT * FROM khachhang.tenmien where trangthai = 'Sắp Hết Hạn';");
+			while(resultSet.next()) {
+				
+				listTenMien.add(convertToTenMien(resultSet));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(resultSet !=null) {
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(statement !=null) {
+				try {
+					statement.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(connection !=null) {
+				try {
+					connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		return listTenMien;
+	} 
+	public ArrayList<TenMien> tenMienHetHan(){
+		Connection connection = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		ArrayList<TenMien> listTenMien = new ArrayList<TenMien>();
+		try {
+			connection = ConnectionFactory.getConnection();
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery("SELECT * FROM khachhang.tenmien where trangthai = 'Hết Hạn';");
+			while(resultSet.next()) {
+				
+				listTenMien.add(convertToTenMien(resultSet));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(resultSet !=null) {
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(statement !=null) {
+				try {
+					statement.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(connection !=null) {
+				try {
+					connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		return listTenMien;
+	} 
 }

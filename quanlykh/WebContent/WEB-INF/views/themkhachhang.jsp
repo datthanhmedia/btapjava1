@@ -11,21 +11,21 @@
 <jsp:include page="header.jsp" />
 <h1>THÔNG TIN KHÁCH HÀNG</h1>
 <form method="POST" action="${pageContext.request.contextPath}/ThemKhachHang">
-	Tên khách hàng: <br>
+	<p class="nhap"> Khách hàng:</p> <br>
 	<input type="text" name = "tenkh" /><br>
-	Thông tin khách hàng: <br>
-	<textarea rows="3" cols="3" name = "thongtin" ></textarea><br>
-	Trạng Thái: <br>
+	<p class="nhap">Thông tin khách hàng:</p> <br>
+	<textarea rows="5" cols="21" name = "thongtin" ></textarea><br>
+	<p class="nhap">Trạng Thái:</p> <br>
 	<input checked="checked" name="trangthai" type="radio" value="0" />Chưa Làm
 	<input name="trangthai" type="radio" value="1" />Đã Làm
 <br>
-	Điện thoại: <br>
+	<p class="nhap">Điện thoại:</p> <br>
 	<input type="text" name = "sdt" /><br>
-	Tên miền: <br>
+	<p class="nhap">Tên miền:</p> <br>
 	<input type="text" name = "tenmien" /><br>
-	Ngày: <br>
-	<input type="date" name = "ngay" />
-	Nhân viên: <br>
+	<p class="nhap">Ngày:</p> <br>
+	<input type="date" name = "ngay" /><br>
+	<p class="nhap">Nhân viên:</p> <br>
 	<input type="text" name = "sale" /><br>
 	<input type="submit" value="Submit"/>
 </form>

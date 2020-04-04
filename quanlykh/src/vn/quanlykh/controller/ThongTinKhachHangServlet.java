@@ -3,6 +3,7 @@ package vn.quanlykh.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,7 @@ public class ThongTinKhachHangServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		KhachHangDAO khachHangDao = new KhachHangDAO();
 		ArrayList<KhachHang> listKhachHang =  khachHangDao.tatCaKhachHang();
+		
 		request.setAttribute("listKhachHang", listKhachHang);
 		RequestDispatcher dispatcher = this.getServletContext().
 		getRequestDispatcher("/WEB-INF/views/thongtinkhachhang.jsp");
